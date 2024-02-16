@@ -1,0 +1,78 @@
+{
+	"apiVersion": 2,
+	"name": "themezee-magazine-blocks/column",
+	"title": "Magazine Column",
+	"category": "themezee-magazine-blocks",
+	"description": "Displays your posts in a list with the first post highlighted.",
+	"attributes": {
+		"categories": {
+			"type": "array"
+		},
+		"tags": {
+			"type": "string"
+		},
+		"author": {
+			"type": "string"
+		},
+		"numberOfPosts": {
+			"type": "number",
+			"default": 3
+		},
+		"offset": {
+			"type": "number",
+			"default": 0
+		},
+		"order": {
+			"type": "string",
+			"default": "desc"
+		},
+		"orderBy": {
+			"type": "string",
+			"default": "date"
+		},
+		"imageSize": {
+			"type": "string",
+			"default": "full"
+		},
+		"thumbnailSize": {
+			"type": "string",
+			"default": "full"
+		},
+		"metaPosition": {
+			"type": "string",
+			"default": "below-title"
+		},
+		"showDate": {
+			"type": "boolean",
+			"default": true
+		},
+		"showAuthor": {
+			"type": "boolean",
+			"default": true
+		},
+		"showCategories": {
+			"type": "boolean",
+			"default": false
+		},
+		"showComments": {
+			"type": "boolean",
+			"default": false
+		},
+		"excerptLength": {
+			"type": "number",
+			"default": 25
+		},
+		"moreText": {
+			"type": "string",
+			"default": "Continue Reading"
+		}
+	},
+	"supports": {
+		"html": false,
+		"inserter": false
+	},
+	"textdomain": "themezee-magazine-blocks",
+	"style": "themezee-magazine-blocks",
+	"editorScript": "themezee-magazine-blocks",
+	"editorStyle": "themezee-magazine-blocks-editor"
+}

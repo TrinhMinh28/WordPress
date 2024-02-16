@@ -1,0 +1,1 @@
+Đây là thư mục chứa các cấu hình về cơ sở dữ liệu

@@ -1,0 +1,143 @@
+<?php
+/*  REST API WordPress (hay còn gọi là WP REST API) là một giao diện lập trình ứng dụng (API) được tích hợp sẵn trong WordPress,
+ cho phép các nhà phát triển tương tác với dữ liệu của WordPress thông qua các yêu cầu HTTP.
+  Với REST API WordPress, bạn có thể lấy và tương tác với các nội dung WordPress như bài đăng,
+   trang, phương tiện, người dùng và các loại bài đăng tùy chỉnh khác.
+
+    REST API WordPress được xây dựng trên kiến trúc RESTful,
+ một kiến trúc phần mềm web tiêu chuẩn để tạo ra các API dễ sử dụng, linh hoạt và bảo mật. 
+ RESTful API sử dụng các yêu cầu HTTP như GET, POST, PUT, DELETE để thực hiện các hành động trên dữ liệu của ứng dụng.
+ 
+    REST API WordPress cho phép các nhà phát triển tạo ra các ứng dụng web và di động độc lập với WordPress, 
+hoặc tích hợp WordPress vào các ứng dụng khác. 
+Các ứng dụng này có thể lấy và hiển thị dữ liệu từ WordPress, cũng như thực hiện các thao tác cập nhật, xóa và tạo mới dữ liệu trên WordPress.
+
+    REST API WordPress cũng có thể được sử dụng để tích hợp WordPress với các ứng dụng và dịch vụ bên ngoài như 
+React, Angular, Vue.js, iOS và Android. 
+    Nó mở ra nhiều cơ hội cho các nhà phát triển để tạo ra các ứng dụng đa nền tảng 
+hoặc tích hợp WordPress vào các ứng dụng hiện có.
+*/
+add_action('rest_api_init', 'wp2023_api_init');
+function wp2023_api_init()
+{
+    $namespace = 'wp2023/v1';
+    $base = 'orders';
+    register_rest_route(
+        $namespace,
+        '/' . $base,
+        array(
+            array(
+                'methods' => WP_REST_Server::READABLE, // GET
+                'callback' => 'wp2023_api_init_orders_all'
+            ),
+            array(
+                'methods' => WP_REST_Server::CREATABLE, // POST
+                'callback' => 'wp2023_api_init_orders_stores'
+            )
+        )
+    );
+    //https://yourdoamin.com//wp-json/wp2023/v1/orders
+    register_rest_route(
+        $namespace,
+        '/' . $base . '/(?P<id>[\d]+)',
+        array(
+            'methods' => WP_REST_Server::READABLE | WP_REST_Server::EDITABLE | WP_REST_Server::DELETABLE,
+            'callback' => 'wp2023_api_init_orders',
+        )
+    );
+
+    // register_rest_route($namespace, '/' . $base . '/(?P<id>[\d]+)', array(
+    //     [
+    //         'methods' => WP_REST_Server::READABLE, //get
+    //         'callback' => 'wp2023_api_init_orders_show'
+    //     ],
+    //     [
+    //         'methods' => WP_REST_Server::EDITABLE, //put
+    //         'callback' => 'wp2023_api_init_orders_update',
+    //     ],
+    //     [
+    //         'methods' => WP_REST_Server::DELETABLE, //delete
+    //         'callback' => 'wp2023_api_init_orders_destroy',
+    //     ]
+    // ));
+    //https://yourdoamin.com//wp-json/wp2023/v1/orders/5(id)
+}
+// //GET,  lấy toàn bộ
+function wp2023_api_init_orders_all($request)
+{
+    $response = array('message' => 'Hello, wp2023_api_init_orders_all!');
+    return rest_ensure_response($response);
+}
+//POST, thêm mới
+function wp2023_api_init_orders_stores($request)
+{
+    $response = array('message' => 'Hello, wp2023_api_init_orders_stores!');
+    return rest_ensure_response($response);
+}
+//GET, lấy theo id
+function wp2023_api_init_orders_show($request)
+{
+    $response = array('message' => 'Hello, wp2023_api_init_orders_show!');
+    return rest_ensure_response($response);
+}
+//PUT, cập nhật theo id
+function wp2023_api_init_orders_update($request)
+{
+    $response = array('message' => 'Hello, wp2023_api_init_orders_update!');
+    return rest_ensure_response($response);
+}
+// DELETE, Xóa theo id
+function wp2023_api_init_orders_destroy($request)
+{
+    $response = array('message' => 'Hello, wp2023_api_init_orders_destroy!');
+    return rest_ensure_response($response);
+}
+
+function wp2023_api_init_orders(WP_REST_Request $request) {
+    $id = $request->get_param('id');
+
+    // Xử lý yêu cầu GET
+    if ($request->get_method() === 'GET') {
+        // // Lấy dữ liệu từ database
+        // $order = get_order_by_id($id);
+
+        // // Trả về dữ liệu
+        // if ($order) {
+        //     return new WP_REST_Response($order, 200);
+        // } else {
+        //     return new WP_Error('not_found', 'Order not found', array('status' => 404));
+        // }
+    }
+
+    // Xử lý yêu cầu PUT
+    if ($request->get_method() === 'PUT') {
+        // // Lấy dữ liệu từ request body
+        // $data = $request->get_json_params();
+
+        // // Cập nhật dữ liệu vào database
+        // $result = update_order_by_id($id, $data);
+
+        // // Trả về kết quả
+        // if ($result) {
+        //     return new WP_REST_Response($result, 200);
+        // } else {
+        //     return new WP_Error('update_failed', 'Unable to update order', array('status' => 500));
+        // }
+    }
+
+    // Xử lý yêu cầu DELETE
+    if ($request->get_method() === 'DELETE') {
+        // // Xóa dữ liệu khỏi database
+        // $result = delete_order_by_id($id);
+
+        // // Trả về kết quả
+        // if ($result) {
+        //     return new WP_REST_Response(array('message' => 'Order deleted'), 200);
+        // } else {
+        //     return new WP_Error('delete_failed', 'Unable to delete order', array('status' => 500));
+        // }
+    }
+
+    // Nếu không phải yêu cầu GET, PUT hoặc DELETE, trả về lỗi 405 Method Not Allowed
+    return new WP_Error('method_not_allowed', 'Method not allowed', array('status' => 405));
+}

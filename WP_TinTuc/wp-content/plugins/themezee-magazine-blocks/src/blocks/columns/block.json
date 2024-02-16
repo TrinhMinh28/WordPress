@@ -1,0 +1,16 @@
+{
+	"apiVersion": 2,
+	"name": "themezee-magazine-blocks/columns",
+	"title": "Magazine Columns",
+	"category": "themezee-magazine-blocks",
+	"description": "Displays your latest posts in two separate columns.",
+	"keywords": [ "Posts", "Columns", "ThemeZee" ],
+	"attributes": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "themezee-magazine-blocks",
+	"style": "themezee-magazine-blocks",
+	"editorScript": "themezee-magazine-blocks",
+	"editorStyle": "themezee-magazine-blocks-editor"
+}
